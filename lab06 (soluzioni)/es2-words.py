@@ -1,17 +1,23 @@
-##
-#  Use a function to count the number of words in a string.
-#
+"""
+Use a function to count the number of words in a string.
+"""
+
 
 def main():
-    inputStr = input("Enter a string: ")
-    print("The string contains", countWordsUsingSplit(inputStr), "words")
+    input_str = input("Enter a string: ")
+    print("The string contains", count_words(input_str), "words")
+    # print("The string contains", count_words_using_split(input_str), "words")
 
 
-#  Count the number of words in a string.
-#  @param string the string of characters to process
-#  @return the number of words
-#
-def countWords(string):
+def count_words(string):
+    """
+    Count the number of words in a string.
+    *Warning*: words must be separated by **one** space, only.
+
+    :param string: the string of characters to process
+    :return: the number of words
+    """
+
     # Remove any leading or trailing spaces to make counting easier.
     string = string.strip()
 
@@ -31,11 +37,13 @@ def countWords(string):
     return count
 
 
-#  Alternative solution to count the number of words in a string by using split().
-#  @param string the string of characters to process
-#  @return the number of words
-#
-def countWordsUsingSplit(string):
+def count_words_using_split(string):
+    """
+    Alternative solution to count the number of words in a string by using split().
+
+    :param string: the string of characters to process
+    :return: the number of words
+    """
     # Split a string into a list and return the number of elements in that list
     return len(string.split())
 

@@ -3,15 +3,17 @@
 #
 
 def main():
-    inputStr = input("Enter a string: ")
-    print("The string contains", countVowels(inputStr), "vowels")
+    input_str = input("Enter a string: ")
+    print("The string contains", count_vowels(input_str), "vowels")
 
 
-# Count the number of vowels in a string.
-#  @param string the string of characters to process
-#  @return the number of vowels
-#
-def countVowels(string):
+def count_vowels(string):
+    """
+    Count the number of vowels in a string.
+
+    :param string: the string of characters to process
+    :return: the number of vowels
+    """
     count = 0
     for ch in string:
         if ch.upper() in "AEIOU":
