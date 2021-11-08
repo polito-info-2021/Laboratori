@@ -12,16 +12,30 @@ values = []
 for i in range(0, NUM_INTEGERS):
     values.append(randint(1, MAX_VALUE))
 
-# Display the elements at even index.
+#
+# a.
+#
+
+# Display the elements at even index
 print("Elements at even index: ", end="")
 for i in range(0, len(values), 2):
     print(values[i], end=" ")
 print()
 
+# Alternative (using a slice the list)
+print("Elements at even index: ", end="")
+for val in values[::2]:
+    print(val, end=" ")
+print()
+
+#
+# b.
+#
+
 # Display the even elements.
 # Alternative 1: use a for..range loop
 print("The even elements are: ", end="")
-for i in range(0, len(values)):
+for i in range(len(values)):
     if values[i] % 2 == 0:
         print(values[i], end=" ")
 print()
@@ -33,11 +47,26 @@ for num in values:
         print(num, end=" ")
 print()
 
+#
+# c.
+#
+
+
 # Display the elements in reverse order.
 print("In reverse order:")
 for i in range(len(values) - 1, -1, -1):
     print(values[i], end=" ")
 print()
+
+# Alternative (reversing the list with a slice)
+print("In reverse order:")
+for val in values[::-1]:
+    print(values[i], end=" ")
+print()
+
+#
+# d.
+#
 
 # Display the first and last element.
 print("First and last:", values[0], values[len(values) - 1])

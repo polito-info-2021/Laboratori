@@ -10,7 +10,7 @@ MAX_VALUE = 99
 
 # Generate the list of random values.
 values = []
-for i in range(0, NUM_VALUES):
+for i in range(NUM_VALUES):
     values.append(randint(MIN_VALUE, MAX_VALUE))
 
 # Display the original values.
