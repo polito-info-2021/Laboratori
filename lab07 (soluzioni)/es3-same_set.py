@@ -33,5 +33,12 @@ def same_set(l1, l2):
     return True
 
 
+def same_set_alternative(l1, l2):
+    if sorted(l1) == sorted(l2):
+        return True
+    else:
+        return False
+
+
 # Call the main function.
 main()

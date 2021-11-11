@@ -5,6 +5,7 @@ Smooth out values in a list by averaging them with their neighbors.
 
 def main():
     values = [1, 2, 3, 5, 3, 1, 4]
+    values_copy = list(values)
 
     # Display the original values.
     print("The original values are:", values)
@@ -12,6 +13,9 @@ def main():
     # Smooth the values and display the result.
     smooth(values)
     print("The smoothed values are:", values)
+
+    smoothed_alternative = smooth_on_new_list(values_copy)
+    print("The smoothed values are:", smoothed_alternative)
 
 
 def smooth(data):
@@ -36,6 +40,26 @@ def smooth(data):
 
     # Handle the last element in the list.
     data[len(data) - 1] = (old_left + data[len(data) - 1]) / 2
+
+
+def smooth_on_new_list(data):
+    """
+    This version creates a NEW list instead of modifying the current one, and returns it
+    """
+    result = []
+
+    # element 0: average of elements 0 and 1
+    result.append((data[0] + data[1]) / 2)
+
+    # elements i = 1...len-1: average of 3 elements
+    for i in range(1, len(data) - 1):
+        value = (data[i - 1] + data[i] + data[i + 1]) / 3
+        result.append(value)
+
+    # last element: average of 2
+    result.append((data[-2] + data[-1]) / 2)
+
+    return result
 
 
 # Call the main function.

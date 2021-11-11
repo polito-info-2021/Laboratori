@@ -17,13 +17,8 @@ def sum_without_smallest(data):
     :param data: the list of values to process
     :return: the sum of all of the values, excluding the smallest
     """
-    smallest = data[0]
-    total = 0
-
-    for value in data:
-        if value < smallest:
-            smallest = value
-        total = total + value
+    smallest = min(data)
+    total = sum(data)
 
     return total - smallest
 
