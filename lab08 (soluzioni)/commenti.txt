@@ -1,0 +1,11 @@
+commenti sul lab8
+Es1. Nella soluzione forse può aver senso aggiungere una versione con lo slice
+a=[0,1,2,3,4,5,6,7,8,9]
+b=[10,11,12,13,14,15]
+l=min(len(a),len(b))
+c=[0]*l*2
+c[::2]=a[:l]
+c[1::2]=b[:l]
+c.extend(a[l:]+b[l:])
+Es3. Nella soluzione, la lettura (input_board():) sarebbe più semplice con un doppio ciclo
+Es4. Non mi piacciono molto gli esercizi che reimpiantano cosa già pronte. Potremmo modificarlo, sostituendo gli interi con singoli simboli della numerazione romana. “I” “V” “X” “L” e togliendo il divieto di sort e aggiungendo il suggerimento di usare una funzione che confronti cifre romane e restituisca un booleano.
