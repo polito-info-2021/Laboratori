@@ -46,5 +46,17 @@ def merge(a, b):
     return result
 
 
+# Alternative solution with the slice
+def merge(a, b):
+    l = min(len(a), len(b))
+    c = [0] * l * 2
+    c[::2] = a[:l]
+    c[1::2] = b[:l]
+
+    c.extend(a[l:] + b[l:])
+
+    return c
+
+
 # Call the main function.
 main()

@@ -1,23 +1,18 @@
-##
-#  Determine if numbers for a magic square.
+#### #  Determine if numbers for a magic square.
 #
 
 
 # Read the values from the user into a 2D board.
 def input_board():
-    row = -1
-    board = []
-    for i in range(0, 16):
-        # The % operator is used to determine if a new row must be added
-        if i % 4 == 0:
-            column = 0
-            row = row + 1
-            board.append([])
-        board[row].append(int(input(f"Enter a value (position {row + 1},{column + 1}): ")))
-        column = column + 1
-
+    board = [] # table
+    for r in range(0, 4): # rows
+        row=[]
+        for c in range(0, 4): # columns
+            val = input(f"Enter a value (position {r + 1},{c + 1}): ")
+            row.append(int(val)) # fills the list for the row
+        board.append(row)    
     return board
-
+        
 
 def display_board(board):
     """
