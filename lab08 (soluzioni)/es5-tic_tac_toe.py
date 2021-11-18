@@ -8,30 +8,32 @@ def main():
 
     # Keep making moves until a player has won.
     turn = "X"
-    gameOver = False
-    while not gameOver:
+    game_over = False
+    while not game_over:
         if turn == "X":
             turn = "O"
         else:
             turn = "X"
-        takeTurn(board, turn)
-        gameOver = gameWon(board, turn) or isFull(board)
+        take_turn(board, turn)
+        game_over = game_won(board, turn) or is_full(board)
 
     # Display the final game board and the winner.
-    drawBoard(board)
-    if gameWon(board, turn):
+    draw_board(board)
+    if game_won(board, turn):
         print("Player", turn, "won!")
-    else:
+    else:  # is_full
         print("It was a tie.")
 
 
-## Process the turn for one player.
-#  @param board the game board to work with
-#  @param mark the symbol used for the player
-#
-def takeTurn(board, mark):
+def take_turn(board, mark):
+    """
+    Process the turn for one player
+
+    :param board: the game board to work with
+    :param mark: the symbol used for the player
+    """
     # Display the board.
-    drawBoard(board)
+    draw_board(board)
 
     # Read the user's move, ensuring that it is legal.
     print("Player %s, make your move: " % mark)
@@ -46,7 +48,7 @@ def takeTurn(board, mark):
     board[row][col] = mark
 
 
-def drawBoard(board):
+def draw_board(board):
     """
     Draw the game board
 
@@ -54,12 +56,12 @@ def drawBoard(board):
     """
     print("   0   1   2")
     for i in range(0, 2):
-        print("%s  %-2s| %-2s| %-2s" % (i, board[i][0], board[i][1], board[i][2]))
+        print(f'{i}  {board[i][0]:<2}| {board[i][1]:<2}| {board[i][2]:<2}')
         print("  ---+---+---")
-    print("2  %-2s| %-2s| %-2s" % (board[2][0], board[2][1], board[2][2]))
+    print(f'{2}  {board[2][0]:<2}| {board[2][1]:<2}| {board[2][2]:<2}')
 
 
-def gameWon(board, mark):
+def game_won(board, mark):
     """
     Determine if a player has won the game
 
@@ -81,7 +83,7 @@ def gameWon(board, mark):
     return False
 
 
-def isFull(board):
+def is_full(board):
     """
     Determine if the board is full
 

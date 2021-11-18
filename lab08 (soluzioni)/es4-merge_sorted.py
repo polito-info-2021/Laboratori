@@ -7,18 +7,18 @@ def main():
     a = [1, 4, 9, 16]
     b = [4, 7, 9, 9, 11, 19]
 
-    # Demonstrate that mergeSorted works correctly.
+    # Demonstrate that merge_sorted works correctly.
     print("List a is", a)
     print("List b is", b)
-    merged = mergeSorted(a, b)
+    merged = merge_sorted(a, b)
     print("The merged list is", merged)
 
     print("In reverse order, the result should be the same:")
-    merged = mergeSorted(b, a)
+    merged = merge_sorted(b, a)
     print("The merged list is", merged)
 
 
-def mergeSorted(a, b):
+def merge_sorted(a, b):
     """
     Merge two sorted lists into a single sorted list
 
