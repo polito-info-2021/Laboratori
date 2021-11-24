@@ -37,6 +37,9 @@ def name_of_best_customer(sales, customers):
         if sales[i] == largest:
             return customers[i]
 
+    # Alternate solution
+    # return customers[sales.index(max(sales))]
+
 
 # Call the main function.
 main()

@@ -36,3 +36,4 @@ def remove_min(data):
 
 # Call the main function.
 main()
+

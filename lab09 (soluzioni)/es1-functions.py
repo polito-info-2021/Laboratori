@@ -83,8 +83,12 @@ def shift_right(data):
         data[i] = data[i - 1]
     data[0] = last
 
-    # shortcut using slices and tuples
+    # Shortcut using slices and tuples
     # (data[0], data[1:]) = (data[-1], data[:-1])
+
+    # Alternate solution with pop and insert methods
+    # last = data.pop(len(data) - 1)
+    # data.insert(0, last)
 
 
 def replace_even(data):
@@ -143,6 +147,18 @@ def even_to_front(data):
         pos = pos + 1
 
 
+def evenToFront2(data):
+    pari = []
+    dispari = []
+
+    for n in data:
+        if n % 2 == 0:
+            pari.append(n)
+        else:
+            dispari.append(n)
+    n = pari + dispari
+
+
 def second_largest(data):
     """
     Identify the second largest value in a list
@@ -150,11 +166,18 @@ def second_largest(data):
     :param data: the list of values to process
     :return: the second largest value in the list
     """
-    largest = max(data)
-    second_large = min(data)  # just as an initial guess
-    for value in data:
-        if value > second_large and value != largest:
-            second_large = value
+
+    data.sort(reverse=True)
+    second_large = data[1]
+
+    # Alternate solution
+    # largest = max(data)
+    # second_large = min(data)  # just as an initial guess
+    # for value in data:
+    #    if value > second_large and value != largest:
+    #        second_large = value
+    # WARNING: does not work if the 1st and 2nd largest are equal
+
     return second_large
 
 
