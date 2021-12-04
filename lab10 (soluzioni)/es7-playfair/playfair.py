@@ -4,12 +4,12 @@
 
 def main():
     # Gather input from the user.
-    keyword = removeDuplicates(input("Enter the keyword: ").upper())
+    keyword = remove_duplicates(input("Enter the keyword: ").upper())
     in_name = input("Enter the input file name: ")
     out_name = input("Enter the output file name: ")
 
-    # Read all of the text out of the file.
-    inf = open(in_name, "r")
+    # Read all the text from the file.
+    inf = open(in_name, "r", encoding='utf-8')
     text = inf.read()
     inf.close()
 
@@ -29,7 +29,7 @@ def main():
     keyword = keyword.replace("J", "I")
 
     # Create the table for modifying the text.
-    table = createTable(keyword)
+    table = create_table(keyword)
 
     # Perform the transformation.
     result = ""
@@ -39,21 +39,21 @@ def main():
         between = ""
         after = ""
 
-        while i < len(text) and text[i] not in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz":
+        while i < len(text) and not text[i].isalpha():  # the condition skips to the next alphabetic character
             before = before + text[i]
             i = i + 1
 
-        (r1, c1) = getPos(text[i], table)
+        (r1, c1) = get_pos(text[i], table)
         i = i + 1
 
-        while i < len(text) and text[i] not in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz":
+        while i < len(text) and not text[i].isalpha():
             between = between + text[i]
             i = i + 1
 
-        (r2, c2) = getPos(text[i], table)
+        (r2, c2) = get_pos(text[i], table)
         i = i + 1
 
-        while i < len(text) and text[i] not in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz":
+        while i < len(text) and not text[i].isalpha():
             after = after + text[i]
             i = i + 1
 
@@ -63,22 +63,24 @@ def main():
         # Handle two letters in the same column.
         elif c1 == c2:
             result = result + before + table[r2][c2] + between + table[r1][c1] + after
-        # Handle all other cases.
+        # Handle the general case.
         else:
             result = result + before + table[r1][c2] + between + table[r2][c1] + after
 
     # Save the result.
-    outf = open(out_name, "w")
+    outf = open(out_name, "w", encoding='utf-8')
     outf.write(result)
     outf.close()
 
 
-## Find the row and column in which a letter exists in a table.
-#  @param letter the letter to search for
-#  @param table the table to search
-#  @return the row and column in which letter resides, or (-1, -1) if not found
-#
-def getPos(letter, table):
+def get_pos(letter, table):
+    """
+    Find the row and column in which a letter exists in a table
+
+    :param letter: the letter to search for
+    :param table: the table to search
+    :return: the row and column in which letter resides, or (-1, -1) if not found
+    """
     for row in range(len(table)):
         for col in range(len(table[row])):
             if table[row][col] == letter.upper():
@@ -86,18 +88,21 @@ def getPos(letter, table):
     return (-1, -1)
 
 
-## Create the 5x5 table for a playfair cipher.
-#  @param keyword the keyword used to construct the table with no duplicates
-#  @return the 5x5 encryption table
-def createTable(keyword):
+def create_table(keyword):
+    """
+    Create the 5x5 table for a playfair cipher.
+
+    :param keyword: the keyword used to construct the table with no duplicates
+    :return: the 5x5 encryption table
+    """
     # Generate an empty table.
     table = []
     for i in range(0, 5):
         table.append([0] * 5)
 
-    # Generate all of the letters to go in the table in the correct order.
+    # Generate all the letters to go in the table in the correct order.
     all_letters = keyword
-    for ch in "ABCDEFGHIKLMNOPQRSTUVWXYZ":
+    for ch in "ABCDEFGHIKLMNOPQRSTUVWXYZ":  # note: the J is missing
         if ch not in all_letters:
             all_letters = all_letters + ch
 
@@ -110,11 +115,13 @@ def createTable(keyword):
     return table
 
 
-## Create a new version of a string containing no duplicate letters.
-#  @param s the string to remove duplicate letters from
-#  @return a new string where all duplicate letters have been removed
-#
-def removeDuplicates(s):
+def remove_duplicates(s):
+    """
+    Create a new version of a string containing no duplicate letters.
+
+    :param s: the string to remove duplicate letters from
+    :return: a new string where all duplicate letters have been removed
+    """
     retval = ""
     for ch in s:
         if ch not in retval:

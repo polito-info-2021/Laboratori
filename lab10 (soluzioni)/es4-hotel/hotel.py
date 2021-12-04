@@ -6,7 +6,7 @@ filename = input("Enter the name of the file to display: ")
 
 # Open the file.
 try:
-    inf = open(filename, "r")
+    inf = open(filename, "r", encoding='utf-8')
 except IOError:
     exit("That file couldn't be opened.")
 
@@ -16,7 +16,7 @@ categories = []
 totals = []
 for line in inf:
     # Verify that the line has the required number of items.
-    parts = line.split(";")
+    parts = line.rstrip().split(";")
     if len(parts) != 4:
         exit("There is an invalid line in the file.")
 
@@ -41,4 +41,5 @@ inf.close()
 # Display the results.
 print("Totals:")
 for i in range(0, len(categories)):
-    print("  %s: %.2f" % (categories[i], totals[i]))
+    # print("  %s: %.2f" % (categories[i], totals[i]))
+    print(f'  {categories[i]}: {totals[i]}')

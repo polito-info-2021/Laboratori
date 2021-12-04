@@ -4,15 +4,15 @@
 
 def main():
     keyword = input('Insert the keyword: ')
-    keyword = removeDuplicates(keyword)
+    keyword = remove_duplicates(keyword)
     keyword = keyword.upper()
 
     # Extract the filenames from the command line and open them.
     input_name = input('Input file name: ')
-    inf = open(input_name, "r")
+    inf = open(input_name, "r", encoding='utf-8')
 
     output_name = input('Output file name: ')
-    outf = open(output_name, "w")
+    outf = open(output_name, "w", encoding='utf-8')
 
     # Construct the full key string with the remaining letters of the
     # alphabet appended in reverse order.
@@ -55,17 +55,18 @@ def main():
     outf.close()
 
 
-## Create a new version of a string containing no duplicate letters.
-#  @param s the string to remove duplicate letters from
-#  @return a new string where all duplicate letters have been removed
-#
-def removeDuplicates(s):
+def remove_duplicates(s):
+    """
+    Create a new version of a string containing no duplicate letters.
+
+    :param s: the string to remove duplicate letters from
+    :return: a new string where all duplicate letters have been removed
+    """
     retval = ""
     for ch in s:
         if ch not in retval:
             retval = retval + ch
     return retval
-
 
 
 # Call the main function.

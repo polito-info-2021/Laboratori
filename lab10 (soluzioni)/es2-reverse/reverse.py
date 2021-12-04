@@ -5,18 +5,18 @@
 import sys
 
 # Read the input file name from the command line and open the input file.
-inputFile = input("Enter the input file name: ")
-inf = open(inputFile, "r")
+input_file = 'input.txt'
+inf = open(input_file, "r", encoding='utf-8')
 
-# Read the lines from the input file.
+# Read all the lines from the input file.
 lines = inf.readlines()
 
 # Close the input file.
 inf.close()
 
 # Read the output file name from the command line and open the output file.
-outputFile = input("Enter the output file name: ")
-outf = open(outputFile, "w")
+output_file = 'output.txt'
+outf = open(output_file, "w", encoding='utf-8')
 
 # Write the lines in reverse order.
 for i in range(len(lines) - 1, -1, -1):

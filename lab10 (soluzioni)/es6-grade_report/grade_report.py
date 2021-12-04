@@ -6,19 +6,19 @@
 sid = input("Enter the student id: ")
 
 # Process each class found in classes.txt.
-courses = open("classes.txt", "r")
+courses = open("classes.txt", "r", encoding='utf-8')
 print("Student ID", sid)
 for course in courses:
     # Remove the trailing newline from the class number.
     course = course.rstrip()
 
     # Open the list for the class and search for the student.
-    inf = open(course + ".txt", "r")
+    inf = open(course + ".txt", "r", encoding='utf-8')
     for line in inf:
         parts = line.split()
         # If the student is in the class then print the mark.
         if sid == parts[0]:
-            print(course+' '+line, end="")
+            print(course + ' ' + line, end="")
 
     # Close the class file.
     inf.close()
