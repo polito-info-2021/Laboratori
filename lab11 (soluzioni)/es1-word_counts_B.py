@@ -5,7 +5,7 @@
 
 # Read the file name from the user and open the file.
 filename = input("Enter the name of a file: ")
-inf = open(filename, "r")
+inf = open(filename, "r", encoding='utf-8')
 
 # Create a new empty dictionary.
 counts = {}

@@ -8,14 +8,18 @@ def main():
 
     print("a is", a)
     print("b is", b)
-    print("The sum of a and b is:", sparseArraySum(a, b))
+    print("The sum of a and b is:", sparse_array_sum(a, b))
 
 
-## Compute the sum of two sparse arrays.
-#  @param a the first array to include in the sum
-#  @param b the second array to include in the sum
-def sparseArraySum(a, b):
-    retval = dict(a)
+def sparse_array_sum(a, b):
+    """
+    Compute the sum of two sparse arrays
+
+    :param a: the first array to include in the sum
+    :param b: the second array to include in the sum
+    :return: a new dict representing the sum array
+    """
+    retval = dict(a)  # make a copy of 'a' to become the result
     for key in b:
         if key in retval:
             retval[key] = retval[key] + b[key]
