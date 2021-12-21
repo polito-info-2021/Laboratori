@@ -13,6 +13,6 @@
 | 08  | [Lab 08](./lab08%20%28Cap%206%29.pdf)                | [Soluzioni proposte](./lab08%20%28soluzioni%29) | [Soluzioni guidate](lab08%20%28soluzioni%20guidate%29.pdf) |
 | 09  | [Lab 09](./lab09%20%28Riep%20Cap%205%20e%206%29.pdf) | [Soluzioni proposte](./lab09%20%28soluzioni%29) | [Soluzioni guidate](lab09%20%28soluzioni%20guidate%29.pdf) |
 | 10  | [Lab 10](./lab10%20%28Cap%207%29.pdf)                | [Soluzioni proposte](./lab10%20%28soluzioni%29) | [Soluzioni guidate](lab10%20%28soluzioni%20guidate%29.pdf) |
-| 11  | [Lab 11](./lab11%20%28Cap%208%29.pdf)                | Soluzioni proposte                              | Soluzioni guidate                                          |
+| 11  | [Lab 11](./lab11%20%28Cap%208%29.pdf)                | [Soluzioni proposte](./lab11%20%28soluzioni%29) | [Soluzioni guidate](lab11%20%28soluzioni%20guidate%29.pdf) |
 
 
